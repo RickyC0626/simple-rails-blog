@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
+# Controller for pages
 class PagesController < ApplicationController
-    def about
-        
-    end
+  def about
+    @title = 'About Us'
+    @content = 'This is the about page'
+  end
 end
