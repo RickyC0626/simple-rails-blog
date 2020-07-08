@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Controller for posts
 class PostsController < ApplicationController
   def index
     @posts = Post.all
@@ -8,15 +11,18 @@ class PostsController < ApplicationController
   end
 
   def new
-
+    @post = Post.new
   end
 
   def create
     # render plain: params[:post].inspect
     @post = Post.new(post_params)
 
-    @post.save
-    redirect_to @post
+    if @post.save
+      redirect_to @post
+    else
+      render 'new'
+    end
   end
 
   private
