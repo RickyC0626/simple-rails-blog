@@ -1,5 +1,11 @@
 <h3>Add Comment</h3>
 <%= form_for([@post, @post.comments.build]) do |f| %>
+  <% flash.each do |type, msg| %>
+    <% msg.each do |m| %>
+      <div class="alert alert-danger"><%= m %></div>
+    <% end %>
+  <% end %>
+
   <p>
     <%= f.label :username %><br>
     <%= f.text_field(:username, { :class => 'form-control' }) %>
