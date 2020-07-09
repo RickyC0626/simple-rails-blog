@@ -3,7 +3,7 @@
 # Controller for posts
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order('created_at')
   end
 
   def show
